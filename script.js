@@ -30,10 +30,15 @@ const appearChars = (str, pEl, timeBetween) => {
   })();
 };
 
+const eventKeys = [];
+
 textareaEl.addEventListener("keydown", async (e) => {
   const inputValue = textareaEl.value.trim();
+  eventKeys.unshift(e.key);
+  eventKeys.length = 2;
+  console.log(eventKeys);
 
-  if (e.key === "Enter") {
+  if (eventKeys.includes("Enter") && !eventKeys.includes("Shift")) {
     try {
       pEl.textContent = "Loading...";
       await run(inputValue);
