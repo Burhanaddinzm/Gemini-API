@@ -34,8 +34,14 @@ textareaEl.addEventListener("keydown", async (e) => {
   const inputValue = textareaEl.value.trim();
 
   if (e.key === "Enter") {
-    pEl.textContent = "Loading...";
-    await run(inputValue);
-    textareaEl.value = "";
+    try {
+      pEl.textContent = "Loading...";
+      await run(inputValue);
+      textareaEl.value = "";
+    } catch (error) {
+      pEl.textContent = "";
+      textareaEl.value = "";
+      appearChars(error.message, pEl, 5);
+    }
   }
 });
