@@ -57,10 +57,10 @@ button {
 }
 
 h1 {
-  margin-top: 20px;
-  text-align: center;
+  margin-top: 16px;
   font-size: 40px;
   color: violet;
+  text-align: center;
 }
 
 p {
@@ -71,7 +71,7 @@ p {
   border-radius: 12px;
   color: rgb(33, 125, 129);
   font-size: 18px;
-  margin-top: 30px;
+  margin-top: 24px;
   font-weight: 500;
   line-height: 30px;
   word-spacing: 4px;
@@ -88,7 +88,7 @@ p {
 textarea {
   background-color: rgb(246, 230, 210);
   padding: 12px 100px 12px 12px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   border: none;
   resize: none;
@@ -138,7 +138,7 @@ button:active {
   }
 
   p {
-    height: 500px;
+    height: 550px;
   }
 
   #form {
