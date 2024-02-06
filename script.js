@@ -49,4 +49,8 @@ textareaEl.addEventListener("keydown", async (e) => {
       appearChars(error.message, pEl, 5);
     }
   }
+
+  if (e.key === "Enter"){
+    eventKeys.length = 0
+  }
 });
