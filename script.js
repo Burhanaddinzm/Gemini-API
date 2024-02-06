@@ -14,7 +14,7 @@ async function run(inputValue) {
 
   const result = await model.generateContent(prompt);
   const response = await result.response;
-  const text = (response.text()).replace("*","");
+  const text = response.text().replace("*","");
 
   pEl.innerHTML = "";
   appearChars(text, pEl, 5);
