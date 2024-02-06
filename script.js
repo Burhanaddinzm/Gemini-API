@@ -42,6 +42,7 @@ formEl.addEventListener("submit", async (e) => {
   const inputValue = textareaEl.value.trim();
 
   try {
+    if (!inputValue) return;
     pEl.textContent = `Loading...`;
     textareaEl.value = ``;
     await run(inputValue);
