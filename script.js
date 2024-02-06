@@ -2,12 +2,16 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const textareaEl = document.querySelector("textarea");
+// const btnEl = document.querySelector("button");
 const pEl = document.querySelector("p");
+const formEl = document.getElementById("form");
 
 const API_KEY = "AIzaSyCDACNtgHaI3vlIj9IDB_0BRuoUo6e7ve8";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
-async function run(inputValue) {
+const timeBetween = 5;
+
+const run = async (inputValue) => {
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
   const prompt = inputValue;
@@ -16,12 +20,14 @@ async function run(inputValue) {
   const response = await result.response;
   const text = response.text().replace(/\*/g, "");
 
-  pEl.innerHTML = "";
-  appearChars(text, pEl, 5);
-}
+  appearChars(text, pEl, timeBetween);
+};
 
 const appearChars = (str, pEl, timeBetween) => {
-  var index = -1;
+  pEl.innerHTML = ``;
+
+  let index = -1;
+
   (function go() {
     if (++index < str.length) {
       pEl.innerHTML += str.charAt(index);
@@ -30,27 +36,17 @@ const appearChars = (str, pEl, timeBetween) => {
   })();
 };
 
-const eventKeys = [];
+formEl.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-textareaEl.addEventListener("keydown", async (e) => {
   const inputValue = textareaEl.value.trim();
-  eventKeys.unshift(e.key);
-  eventKeys.length = 2;
-  console.log(eventKeys);
 
-  if (eventKeys.includes("Enter") && !eventKeys.includes("Shift")) {
-    try {
-      pEl.textContent = "Loading...";
-      await run(inputValue);
-      textareaEl.value = "";
-    } catch (error) {
-      pEl.textContent = "";
-      textareaEl.value = "";
-      appearChars(error.message, pEl, 5);
-    }
-  }
-
-  if (e.key === "Enter"){
-    eventKeys.length = 0
+  try {
+    pEl.textContent = `Loading...`;
+    textareaEl.value = ``;
+    await run(inputValue);
+  } catch (error) {
+    textareaEl.value = ``;
+    appearChars(error.message, pEl, timeBetween);
   }
 });

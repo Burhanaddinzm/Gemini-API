@@ -36,6 +36,68 @@ button {
   margin-bottom: 40px;
 }
 
+h1 {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 48px;
+  color: violet;
+}
+
+p {
+  background-color: bisque;
+  height: 700px;
+  overflow-y: scroll;
+  padding: 20px 20px 100px;
+  border-radius: 12px;
+  color: rgb(33, 125, 129);
+  font-size: 18px;
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+#form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 98.8%;
+  height: 80px;
+}
+
+textarea {
+  background-color: rgb(246, 230, 210);
+  padding: 12px 100px 12px 12px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  resize: none;
+  width: 100%;
+  max-height: 100%;
+  outline: none;
+  border-top: 1px solid #000;
+  border-radius: 0 0 12px 12px;
+}
+
+button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  border-radius: 12px;
+  background-color: rgb(116, 187, 220);
+  color: rgb(62, 55, 63);
+  border: 1px solid #000;
+  padding: 8px 4px;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  filter: brightness(90%);
+}
+
+button:active {
+  filter: brightness(110%);
+}
+
 @media screen and (max-width: 1440px) {
   .container {
     max-width: 1280px;
@@ -50,44 +112,14 @@ button {
 
 @media screen and (max-width: 1024px) {
   .container {
-    width: calc(100% - 2rem);
+    width: calc(100% - 3rem);
   }
-}
 
-h1 {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 48px;
-  color: violet;
-}
+  p {
+    height: 500px;
+  }
 
-p {
-  background-color: bisque;
-  height: 700px;
-  overflow-y: scroll;
-  padding: 20px 20px 120px;
-  border-radius: 12px;
-  color: rgb(33, 125, 129);
-  font-size: 18px;
-  margin-top: 50px;
-  font-weight: 500;
-}
-
-textarea {
-  background-color: rgb(246, 230, 210);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 98.8%;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  border: none;
-  resize: vertical;
-  height: 50px;
-  min-height: 50px;
-  max-height: 100px;
-  outline: none;
-  border-top: 1px solid #000;
-  border-radius: 0 0 12px 12px;
+  #form {
+    width: 100%;
+  }
 }
