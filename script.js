@@ -24,7 +24,7 @@ const appearChars = (str, pEl, timeBetween) => {
   var index = -1;
   (function go() {
     if (++index < str.length) {
-      pEl.innerHTML = pEl.innerHTML + str.charAt(index);
+      pEl.innerHTML += str.charAt(index);
       setTimeout(go, timeBetween);
     }
   })();
