@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://gemini-burhan.netlify.app/sitemap.xml
